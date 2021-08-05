@@ -1,0 +1,126 @@
+
+<div class="container-fluid">
+    <mat-tab-group mat-align-tabs="center">
+     <mat-tab label="Personal details"> 
+          
+       
+      <div class="logincont" >
+        <div class="addcontents">
+          <div class="logincont">
+            <i class="bi bi-person-bounding-box"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16">
+              <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z"/>
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            </svg>
+          </div>
+          <br>
+            
+            <table class=''>       
+              <tbody>  
+                   
+                    <tr>
+                        <h5><td><label> Name</label></td>
+                        <td>:{{alumnidata.uname}}</td> </h5>                 
+                      </tr> 
+                      <tr>
+                        <h5><td><label>Email</label></td>
+                        <td>:{{alumnidata.email}}</td></h5>                 
+                      </tr>  
+                      <tr>
+                        <h5><td><label>City</label></td>
+                        <td> &nbsp; &nbsp;:{{alumnidata.city}}</td></h5> 
+                      </tr>  
+                      <tr>
+                        <h5><td><label>Qualification</label></td>
+                        <td>:{{alumnidata.hq}}</td></h5>                  
+                      </tr> 
+                      <tr *ngIf="_auth.isverified()">
+                        <h5><td><label>Verification Status</label></td>   </h5> 
+                            <h5><td><label>Status</label></td>
+                            <td> : &nbsp; &nbsp; &nbsp; &nbsp;<i class="bi bi-check-square-fill"></i><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
+                              <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
+                            </svg></td></h5>                  
+                          
+                                    
+                      </tr> 
+                      <tr *ngIf="!_auth.isverified()">
+                        <h5><td><label>Verification Status: Not Verified</label></td>   </h5> 
+                           
+                                              
+                          
+                                    
+                      </tr> 
+                      
+                      <tr>
+                        <td></td>
+                       
+                        <td><button class="button"  type="submit"  (click)="updatealumni(alumnidata)"  >Update details</button></td>                  
+                      </tr>             
+              </tbody>
+            </table>
+            <br>
+
+        </div>
+    </div>
+        
+        </mat-tab>
+       
+        <mat-tab label="Jobs"> 
+            
+            <div class="example-large-box mat-elevation-z4">
+                <app-alljobs></app-alljobs>
+            </div>
+        
+        
+        </mat-tab>
+        <mat-tab label="Applied Jobs"> 
+            
+            <div class="example-large-box mat-elevation-z4">
+                <mat-card class="box">
+                    <mat-card-header>
+                       <mat-card-title><h1>
+                        Applied job details
+                       </h1></mat-card-title>
+                     </mat-card-header>
+                <div>
+                    
+                    <table>
+                       <thead>
+                          <tr>
+                             <th>Company Name</th>
+                             <th>Job Role</th>
+                             <th>Job Description</th>
+                             <th>Skills</th>
+                             <th>Experience</th>
+                             <th>Job Type</th>
+                             <th>Last Date</th>
+                             <th></th>
+                             <th></th>
+                             <th></th>
+        
+                          </tr>
+                       </thead>
+                       <tbody>
+                          <tr *ngFor="let item of jobs" >
+                             <td> {{item.cname}}</td>
+                             <td>{{item.jobrole}}</td>
+                             <td>{{item.jobdesc}}</td>
+                             <td>{{item.skill}}</td>
+                             <td>{{item.experience}}</td>
+                             <td>{{item.jobtype}}</td>
+                             <td>{{item.lastdate}}</td>
+                              
+                          </tr>
+                       </tbody>
+                    </table>
+                 </div>
+                 </mat-card>
+            </div>
+        
+        
+        </mat-tab>
+      </mat-tab-group>
+
+
+    
+</div>
