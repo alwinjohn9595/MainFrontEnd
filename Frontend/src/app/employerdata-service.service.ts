@@ -23,19 +23,19 @@ export class EmployerdataService {
   constructor(private http:HttpClient) { }
 
   postEmployerdata(item:any){
-    return this.http.post<any>('http://localhost:3000/postEmployer',item)
+    return this.http.post<any>('/api/postEmployer',item)
     .subscribe(data=>{console.log(data)})
   }
   
   loginEmployer(emp:any){
-    return this.http.post<any>('http://localhost:3000/loginemployer',emp)
+    return this.http.post<any>('/api/loginemployer',emp)
   }
 
   getEmployer(id:any){
-    return this.http.get('http://localhost:3000/getEmployer/'+id)
+    return this.http.get('/api/getEmployer/'+id)
   }
 
   getAllEmployers(){
-    return this.http.get('http://localhost:3000/getAllEmployer')
+    return this.http.get('/api/getAllEmployer')
   }
 }

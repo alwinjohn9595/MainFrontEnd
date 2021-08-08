@@ -10,29 +10,29 @@ export class AdminService {
 
   logindata(user:any){
     
-    return this.http.post<any>("http://localhost:3000/faculty/login",user)
+    return this.http.post<any>("/api/faculty/login",user)
   }
 
   addfacultydata(user:any){
-    return this.http.post<any>("http://localhost:3000/faculty/add",user)
+    return this.http.post<any>("/api/faculty/add",user)
 
   }
 
   getfacultydata(id:any){
-    return this.http.get("http://localhost:3000/faculty/"+id)
+    return this.http.get("/api/faculty/"+id)
 
   }
 
   
  getfaculty(){
   
- return this.http.get("http://localhost:3000/allfaculty");
+ return this.http.get("/api/allfaculty");
 
 }
 
 editfaculty(faculty:any){
   console.log('client update')
-    return this.http.put("http://localhost:3000/faculty/update",faculty)
+    return this.http.put("/api/faculty/update",faculty)
     .subscribe(data =>{console.log(data)})
 }
 
@@ -41,7 +41,7 @@ editfaculty(faculty:any){
 deletefaculty(id:any)
 {
     console.log("hai")
-  return this.http.delete("http://localhost:3000/facultyremove/"+id)
+  return this.http.delete("/api/facultyremove/"+id)
 
 }
 

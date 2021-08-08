@@ -11,50 +11,50 @@ export class JobService {
 
 
 postjob(user:any){
-  return this.http.post<any>("http://localhost:3000/jobs/postjob",user)
+  return this.http.post<any>("/api/jobs/postjob",user)
 }
 
 getjobs(){
-  return this.http.get("http://localhost:3000/all")
+  return this.http.get("/api/all")
 }
 getempjob(empdata:any){
-  return this.http.get("http://localhost:3000/jobs/getempjobs/"+empdata)
+  return this.http.get("/api/jobs/getempjobs/"+empdata)
 }
 applyjob(data:any){
   console.log(data)
-  return this.http.post("http://localhost:3000/jobs/applyjob",data)
+  return this.http.post("/api/jobs/applyjob",data)
 }
 
 
 
 deletejobpost(data:any){
-  return this.http.delete("http://localhost:3000/jobs/deletejobpost/"+data)
+  return this.http.delete("/api/jobs/deletejobpost/"+data)
 }
 
 
 
 loggedinuserjobdetails(data1:any){
    console.log(data1);
-  return this.http.post<any>("http://localhost:3000/jobs/loggedin/",{"email":data1})
+  return this.http.post<any>("/api/jobs/loggedin/",{"email":data1})
 }
 
 applicantdata(data:any){
   console.log(data)
-  return this.http.get("http://localhost:3000/jobs/applicant/"+data)
+  return this.http.get("/api/jobs/applicant/"+data)
 
 }
 
 verifyalumni(alumni:any){
   console.log(alumni);
   console.log("hai")
-   return this.http.post("http://localhost:3000/jobs/appverify/",alumni)
+   return this.http.post("/api/jobs/appverify/",alumni)
    .subscribe(app =>{console.log(app)})
 }
 
 
 deleteapplicant(appdelete:any){
  console.log(appdelete);
- return this.http.delete("http://localhost:3000/jobs/deleteapplicant/"+appdelete).subscribe((data)=>[
+ return this.http.delete("/api/jobs/deleteapplicant/"+appdelete).subscribe((data)=>[
    console.log(data)
  ])
 }
